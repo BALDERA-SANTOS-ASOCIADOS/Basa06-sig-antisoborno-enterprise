@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: sig-antisoborno-enterprise
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app_sig_antisoborno_5_0_integral.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: SIG_ADMIN_PASSWORD
+        generateValue: true
+      - key: SIG_OFICIAL_PASSWORD
+        generateValue: true
+      - key: SIG_AUDITOR_PASSWORD
+        generateValue: true
+      - key: SIG_CLIENTE_PASSWORD
+        generateValue: true
